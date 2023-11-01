@@ -8,8 +8,9 @@ function convertValues() {
    
    console.log(currencySelect.value)
 
-   const dolarToday = 5.4
-   const euroToday = 6.2
+   const dolarToday = 5.04
+   const euroToday = 5.32
+   const libraToday = 6.11
    
    
 
@@ -25,15 +26,21 @@ function convertValues() {
           style:"currency",
           currency:"EUR"  
         }).format(inputCurrencyValue/euroToday)
+    }
+    if(currencySelect.value == "LIB"){
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("en-GB",{
+           style:"currency",
+           currency:"GBP"
+           }).format(inputCurrencyValue / libraToday)   
 
     }
     currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency:"BRL"
     }).format(inputCurrencyValue)
+} 
     
-    
-}  
+  
   function changeCurrency() {
       const currencyName = document.getElementById('currency-name')
       const currencyImage = document.querySelector('.currency-img')
@@ -47,6 +54,11 @@ function convertValues() {
         currencyName.innerHTML = "Euro"
         currencyImage.src = './assets/euro.png'
     }
+
+    if (currencySelect.value == "LIB"){
+        currencyName.innerHTML = 'Libra Esterlina'
+        currencyImage.src = './assets/libra .png'
+    }
     convertValues()
 }
  
@@ -54,7 +66,3 @@ function convertValues() {
 
 currencySelect.addEventListener('change',changeCurrency )
 convertButton.addEventListener('click',convertValues) 
-    
-    
-    
-    

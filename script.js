@@ -11,6 +11,7 @@ function convertValues() {
    const dolarToday = 5.04
    const euroToday = 5.32
    const libraToday = 6.11
+   const francoToday = 5.48
    
    
 
@@ -34,6 +35,16 @@ function convertValues() {
            }).format(inputCurrencyValue / libraToday)   
 
     }
+    if(currencySelect.value == "CHF"){
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("fr-CH",{
+           style:"currency",
+           currency:"CHF"
+           }).format(inputCurrencyValue / francoToday)   
+
+    }
+
+
+
     currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency:"BRL"
@@ -59,6 +70,12 @@ function convertValues() {
         currencyName.innerHTML = 'Libra Esterlina'
         currencyImage.src = './assets/libra .png'
     }
+
+    if (currencySelect.value == "CHF"){
+        currencyName.innerHTML = 'Franco Suiço'
+        currencyImage.src = './assets/franco1.png'
+    }
+
     convertValues()
 }
  
